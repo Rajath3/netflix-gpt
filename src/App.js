@@ -1,9 +1,10 @@
 import './App.css';
+import Body from './components/Body';
 
 function App() {
   return (
-    <div className="font-2xl text-green-900 underline">
-      Hello and Excited
+    <div>
+      <Body/>
     </div>
   );
 }
