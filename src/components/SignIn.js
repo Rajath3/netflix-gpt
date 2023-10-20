@@ -1,5 +1,8 @@
 import React, {useRef, useState} from 'react'
 import { validateForm } from '../utils/validate'
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import {auth} from '../utils/firebase'
+
 
 const SignIn = ({isSignIn, toggleSignIn}) => {
   const [errorMessage, setErrorMessage] = useState(null)
@@ -10,6 +13,26 @@ const SignIn = ({isSignIn, toggleSignIn}) => {
     const message = validateForm(email?.current?.value, password?.current?.value, name)
 
     setErrorMessage(message)
+
+    if (message) return;
+
+    if (!isSignIn) {
+      createUserWithEmailAndPassword(auth, email?.current?.value, password?.current?.value).then((userCredential) => {
+        console.log(userCredential.user);
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      setErrorMessage(errorCode + "-" + errorMessage)
+    });
+    } else {
+      signInWithEmailAndPassword(auth, email?.current?.value, password?.current?.value).then((userCredential) => {
+        console.log(userCredential.user);
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      setErrorMessage(errorCode + "-" + errorMessage)
+  });
+    }
   }
   
   const signInType = isSignIn ? 'Sign In': 'Sign Up'
