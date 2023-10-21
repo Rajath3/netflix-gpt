@@ -2,13 +2,11 @@ import React, {useRef, useState} from 'react'
 import { validateForm } from '../utils/validate'
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import {auth} from '../utils/firebase'
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
 
 
 const SignIn = ({isSignIn, toggleSignIn}) => {
-  const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const [errorMessage, setErrorMessage] = useState(null)
@@ -31,7 +29,6 @@ const SignIn = ({isSignIn, toggleSignIn}) => {
         .then((userRecord) => {
           const {uid, displayName, email, photoURL } = auth.currentUser;
           dispatch(addUser({uid: uid, displayName: displayName, email: email, photoURL: photoURL}));
-          navigate('/browse')
         })
         .catch((error) => {
           setErrorMessage(error.message)
@@ -43,7 +40,6 @@ const SignIn = ({isSignIn, toggleSignIn}) => {
     });
     } else {
       signInWithEmailAndPassword(auth, email?.current?.value, password?.current?.value).then((userCredential) => {
-        navigate('/browse')
       }).catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;

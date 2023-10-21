@@ -1,23 +1,35 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from '../utils/firebase';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { addUser, removeUser } from '../utils/userSlice';
 
 
 const Header = () => {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const user = useSelector(store => store.user);
 
+  useEffect(()=> {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const {uid, displayName, email, photoURL } = user;
+        dispatch(addUser({uid: uid, displayName: displayName, email: email, photoURL: photoURL}));
+        navigate('/browse')
+      } else {
+        dispatch(removeUser());
+        navigate('/')
+      }
+    });
+  }, [])
+
   const handleLogout = () => {
-    signOut(auth).then(() => {
-      navigate('/')
-    }).catch((error) => {
+    signOut(auth).then(() => {}).catch((error) => {
       console.log('error' + error.message)
     });
 
   }
-  console.log(user)
 
   return (
     <div className='absolute w-full bg-gradient-to-b from-black z-10 flex justify-between'>
