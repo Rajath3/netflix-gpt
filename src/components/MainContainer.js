@@ -4,7 +4,7 @@ import VideoBackground from './VideoBackground'
 import { useSelector } from 'react-redux'
 
 const MainContainer = () => {
-  const movies = useSelector(store => store.movie?.nowPlaying)
+  const movies = useSelector(store => store.movie?.upComingMovies)
 
   if (!movies) return;
   

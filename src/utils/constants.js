@@ -7,8 +7,16 @@ export const BG_IMG = 'https://assets.nflxext.com/ffe/siteui/vlv3/ab180a27-b661-
 export const MY_PIC = 'https://occ-0-4994-3663.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABY20DrC9-11ewwAs6nfEgb1vrORxRPP9IGmlW1WtKuaLIz8VxCx5NryzDK3_ez064IsBGdXjVUT59G5IRuFdqZlCJCneepU.png?r=229';
 
 
-export const MOVIES_UPCOMING_URL = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1';
+export const MOVIES_UPCOMING_URL = 'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1';
+
 
 export const TRAILER_URL = 'https://api.themoviedb.org/3/movie/';
 
 export const CDN_IMG_URL = 'https://image.tmdb.org/t/p/w200';
+
+export const MOVIES_POPULAR_URL = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
+
+export const MOVIES_TOP_RATEED_URL = 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1';
+
+export const MOVIES_NOW_PLAYING_URL = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1';
+
