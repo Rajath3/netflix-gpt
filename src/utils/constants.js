@@ -10,3 +10,5 @@ export const MY_PIC = 'https://occ-0-4994-3663.1.nflxso.net/dnm/api/v6/K6hjPJd6c
 export const MOVIES_UPCOMING_URL = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1';
 
 export const TRAILER_URL = 'https://api.themoviedb.org/3/movie/';
+
+export const CDN_IMG_URL = 'https://image.tmdb.org/t/p/w200';
