@@ -4,4 +4,9 @@ export const USER = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEJQo
 
 export const BG_IMG = 'https://assets.nflxext.com/ffe/siteui/vlv3/ab180a27-b661-44d7-a6d9-940cb32f2f4a/7fb62e44-31fd-4e1f-b6ad-0b5c8c2a20ef/IN-en-20231009-popsignuptwoweeks-perspective_alpha_website_large.jpg';
 
-export const MY_PIC = 'https://avatars.githubusercontent.com/u/18056805?s=400&v=4';
+export const MY_PIC = 'https://occ-0-4994-3663.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABY20DrC9-11ewwAs6nfEgb1vrORxRPP9IGmlW1WtKuaLIz8VxCx5NryzDK3_ez064IsBGdXjVUT59G5IRuFdqZlCJCneepU.png?r=229';
+
+
+export const MOVIES_UPCOMING_URL = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1';
+
+export const TRAILER_URL = 'https://api.themoviedb.org/3/movie/';

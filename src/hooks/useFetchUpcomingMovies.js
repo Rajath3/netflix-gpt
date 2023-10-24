@@ -1,7 +1,8 @@
 import { useDispatch } from "react-redux";
-import { API_OPTIONS, MOVIES_UPCOMING_URL } from "../utils/constants";
+import { API_OPTIONS } from "../utils/secret";
 import { addUpcomingMovies } from "../utils/movieSlice";
 import { useEffect } from "react";
+import { MOVIES_UPCOMING_URL } from "../utils/constants";
 
 const useFetchUpcomingMovies = () => {
   const dispath = useDispatch();
