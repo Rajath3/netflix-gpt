@@ -5,6 +5,7 @@ import { auth } from '../utils/firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser, removeUser } from '../utils/userSlice';
 import { NETFLIX_LOGO, USER } from '../utils/constants';
+import { toggleViewGpt } from '../utils/gptSlice';
 
 
 const Header = () => {
@@ -30,7 +31,10 @@ const Header = () => {
     signOut(auth).then(() => {}).catch((error) => {
       console.log('error' + error.message)
     });
+  }
 
+  const handleGptViewChange = () => {
+    dispatch(toggleViewGpt());
   }
 
   return (
@@ -40,6 +44,8 @@ const Header = () => {
         src={NETFLIX_LOGO} alt='netflix-logo'/>
 
         {user && <div className='flex p-4 m-4'>
+          <button className='py-2 px-2 mx-2 text-white bg-blue-400 rounded-lg'
+          onClick={handleGptViewChange}>GPT Search</button>
           <img 
           className='w-12 h-12'
           
