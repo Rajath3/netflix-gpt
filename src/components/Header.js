@@ -44,7 +44,7 @@ const Header = () => {
         src={NETFLIX_LOGO} alt='netflix-logo'/>
 
         {user && <div className='flex p-4 m-4'>
-          <button className='py-2 px-2 mx-2 text-white bg-blue-400 rounded-lg'
+          <button className='px-2 mx-2 text-white bg-blue-900 rounded-lg'
           onClick={handleGptViewChange}>GPT Search</button>
           <img 
           className='w-12 h-12'
