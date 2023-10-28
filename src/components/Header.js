@@ -4,8 +4,9 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from '../utils/firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser, removeUser } from '../utils/userSlice';
-import { NETFLIX_LOGO, USER } from '../utils/constants';
+import { NETFLIX_LOGO, SUPPORTED_LANGUAGES, USER } from '../utils/constants';
 import { toggleViewGpt } from '../utils/gptSlice';
+import { changeLanguage } from '../utils/configSlice';
 
 
 const Header = () => {
@@ -37,6 +38,10 @@ const Header = () => {
     dispatch(toggleViewGpt());
   }
 
+  const handleLanguageChange = (e) => {
+    dispatch(changeLanguage(e.target.value));
+  }
+
   return (
     <div className='absolute w-full bg-gradient-to-b from-black z-10 flex justify-between'>
         <img 
@@ -44,6 +49,9 @@ const Header = () => {
         src={NETFLIX_LOGO} alt='netflix-logo'/>
 
         {user && <div className='flex p-4 m-4'>
+          <select className='bg-black text-white p-2 m-2 rounded-lg' onChange={handleLanguageChange}>
+            {SUPPORTED_LANGUAGES.map(lang => <option key={lang.value} value={lang.value}>{lang.name}</option>)}
+          </select>
           <button className='px-2 mx-2 text-white bg-blue-900 rounded-lg'
           onClick={handleGptViewChange}>GPT Search</button>
           <img 

@@ -20,3 +20,5 @@ export const MOVIES_TOP_RATEED_URL = 'https://api.themoviedb.org/3/movie/top_rat
 
 export const MOVIES_NOW_PLAYING_URL = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1';
 
+export const SUPPORTED_LANGUAGES = [{value: 'en', name: 'English'},{value: 'hindi', name: 'Hindi'}, {value: 'spanish', name: 'Spanish'}]
+
