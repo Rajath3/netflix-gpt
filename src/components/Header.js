@@ -13,6 +13,7 @@ const Header = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const user = useSelector(store => store.user);
+  const gptView = useSelector(store => store.gpt.viewGpt);
 
   useEffect(()=> {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -49,11 +50,14 @@ const Header = () => {
         src={NETFLIX_LOGO} alt='netflix-logo'/>
 
         {user && <div className='flex p-4 m-4'>
+          { gptView && 
           <select className='bg-black text-white p-2 m-2 rounded-lg' onChange={handleLanguageChange}>
             {SUPPORTED_LANGUAGES.map(lang => <option key={lang.value} value={lang.value}>{lang.name}</option>)}
-          </select>
+          </select>}
           <button className='px-2 mx-2 text-white bg-blue-900 rounded-lg'
-          onClick={handleGptViewChange}>GPT Search</button>
+          onClick={handleGptViewChange}>
+            {gptView ?  "Homepage" : "GPT Search" }
+          </button>
           <img 
           className='w-12 h-12'
           

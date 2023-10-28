@@ -7,7 +7,6 @@ const GptSearchBar = () => {
   
   const lang = useSelector(store => store.config.language);
 
-  console.log(language[lang]);
   return (
     <div className='flex justify-center'>
         <div className='absolute bg-blend-color-burn -z-20 opacity-90'>
