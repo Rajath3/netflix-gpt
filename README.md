@@ -1,4 +1,8 @@
 ### Body
 - Login
-    - Header
-    - Sign In 
+    - Firebase integration for signin and signup
+- Movie lists
+  - Used TMDB API's to list movies
+  - Autoplay movies
+- TBD
+  - GPT integration
